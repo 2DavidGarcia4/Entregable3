@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
 import useFetch from "../hoocks/useFetch";
 
-const {getResident} = useFetch()
-const emojis = {
+const {getResident} = useFetch(), emojis = {
    "alive": "🟢",
    "dead": "🔴",
    "unknown": "⚪"
