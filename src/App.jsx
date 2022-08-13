@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Loader from './components/loader.jsx'
+import Loader from './components/Loader.jsx'
 import Seeker from './components/Seeker.jsx'
 import Location from './components/Location.jsx'
 import SelectPage from './components/SelectPage.jsx'
