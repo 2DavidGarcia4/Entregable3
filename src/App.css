@@ -10,7 +10,7 @@
   top: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #05292e71;
+  /* background-color: #05292e71; */
   padding-bottom: 40px;
 }
 
@@ -62,8 +62,8 @@
   outline: none;
   z-index: 2;
   font-weight: 500;
-  font-size: 15px;
-  padding: 0 60px;
+  font-size: 16px;
+  padding: 0 56px;
   border-radius: 20px;
   color: rgb(207, 207, 207);
   box-shadow: 0 4px 5px #000;
@@ -104,14 +104,15 @@
 }
 
 .seeker-active .autocomp-box{
-  padding: 60px 50px 20px 50px;
+  padding: 60px 20px 20px 20px;
   box-shadow: 0 4px 5px #000;
   max-height: 400px;
 }
 
 .autocomp_option{
-  padding: 5px;
   cursor: pointer;
+  padding: 5px 36px;
+  font-size: 16px;
 }
 
 .autocomp_option:hover{
@@ -119,7 +120,7 @@
 }
 
 .autocomp_option span{
-  color: rgb(173, 173, 173);
+  color: rgb(145, 145, 145);
 }
 
 .seeker input:hover{
@@ -301,7 +302,7 @@
 }
 
 @media (max-width: 600px) {
-  .seeker input{
+  .seeker{
     width: 90%;
   }
   

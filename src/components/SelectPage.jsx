@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 
-function SelectPage({residents, setNumbersCards}){
+function SelectPage({residents, setNumbersCards, button}){
    const [numbers, setNumbersPage] = useState({start: 0, limit: 8})
-   const [actualButton, getActualButton] = useState(undefined)
+   const [actualButton, getActualButton] = button
    const buttons = []
    function btnPage(event){
       if(!actualButton || event!=actualButton){

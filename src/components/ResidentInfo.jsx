@@ -6,7 +6,7 @@ const {getResident} = useFetch(), emojis = {
    "dead": "🔴",
    "unknown": "⚪"
 }
-function Card({url}){
+function ResidentInfo({url}){
    const resident = getResident(url)
    
    if(resident){
@@ -26,4 +26,4 @@ function Card({url}){
       )
    }
 }
-export default Card
+export default ResidentInfo

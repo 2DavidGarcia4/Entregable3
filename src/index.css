@@ -34,9 +34,24 @@ body::-webkit-scrollbar-thumb:active {
   background-color: #00879c;
 }
 
-body > img{
+.background{
   position: fixed;
   width: 100%;
-  top: -46px;
-  /* z-index: 2; */
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/originals/8b/72/65/8b7265d99dde4f34ba2bd380f6bf121e.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(0.8);
+}
+
+@media (max-width: 900px) {
+  .background{
+    background-position: right;
+  }
+}
+
+@media (max-width: 600px) {
+  .background{
+    background-image: url("https://i.pinimg.com/originals/35/cb/49/35cb493c892bae4514f593266dfd6ddb.jpg");
+  }
 }
