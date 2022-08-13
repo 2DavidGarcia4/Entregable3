@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import useFetch from "../hoocks/useFetch";
 
-function Seeker({getId}){
+function Seeker({getId, setLoading}){
    const {getLocations} = useFetch()
    const [text, setText] = useState("")
    const [options, setOptions] = useState([])
    const locations = getLocations("https://rickandmortyapi.com/api/location")
 
    function optionClick(event){
+      setLoading(true)
       const form = document.querySelector(".seeker")
       setText(locations.find(f=> f.id==event.target.dataset.id).name)
       form.classList.remove("seeker-active")

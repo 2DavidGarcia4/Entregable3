@@ -21,7 +21,9 @@ function useFetch(){
       const [data, getData] = useState(null)
       useEffect(()=>{
          setNumbersCards({start: 0, limit: 20})
-         fetch(`https://rickandmortyapi.com/api/location/${id || Math.floor(Math.random()*125)+1}`).then(prom=> prom.json()).then(res=> getData(res)).catch(error=> console.error(error))
+         const randomNum = Math.floor(Math.random()*125)+1
+         console.log(randomNum)
+         fetch(`https://rickandmortyapi.com/api/location/${id || randomNum}`).then(prom=> prom.json()).then(res=> getData(res)).catch(error=> console.error(error))
       }, [id])
       return data
    }
