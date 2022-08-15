@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 
 function SelectPage({residents, setNumbersCards, button}){
-   const [numbers, setNumbersPage] = useState({start: 0, limit: 8})
-   const [actualButton, getActualButton] = button
-   const buttons = []
-   console.log("Select page")
-   if(buttons && !actualButton){
+   const [numbers, setNumbersPage] = useState({start: 0, limit: 8}) // Para mostrar solo 8 botones
+   const [actualButton, getActualButton] = button 
+   const buttons = [] // Areglo de botones
+
+   if(buttons && !actualButton){ // Al seleccionar una nueva dimencion que se restablezca el boton activo al primero
       document.querySelectorAll(".select_page-btn").forEach(el=>{
          if(el.dataset.id == 1){
             el.classList.add("page-btn-active")
@@ -14,7 +14,8 @@ function SelectPage({residents, setNumbersCards, button}){
          }
       })
    }
-   function btnPage(event){
+
+   function btnPage(event){ // Al dar clic a un boton que se active, se desactive el anterior y cambie la pagina
       if(!actualButton || event!=actualButton){
          document.querySelectorAll(".select_page-btn").forEach(el=>{
             if(!actualButton && el.dataset.id == 1) el.classList.remove("page-btn-active")
@@ -31,13 +32,15 @@ function SelectPage({residents, setNumbersCards, button}){
       }, 400)
    }
 
-   for(let i=1; i<=Math.ceil(residents/20); i++){
-      buttons.push(<button key={`button-${i}`} onClick={btnPage} data-id={i} className={`select_page-btn${i==1 ? " page-btn-active" : ""}`} >{i}</button>)
+   if(Math.ceil(residents/20) > 1){ // Agregan los botones al areglo solo si hay mas de 1 pagina
+      for(let i=1; i<=Math.ceil(residents/20); i++){
+         buttons.push(<button key={`button-${i}`} onClick={btnPage} data-id={i} className={`select_page-btn${i==1 ? " page-btn-active" : ""}`} >{i}</button>)
+      }
    }
 
    return (
       <div onClick={(e)=> e.target.dataset.id} className="select_page">
-         {buttons.length == 1 ? null : buttons.slice(numbers.start, numbers.limit)}
+         {buttons.slice(numbers.start, numbers.limit)}
       </div>
    )
 }

@@ -1,14 +1,11 @@
 import React, {useState} from "react";
 import useFetch from "../hoocks/useFetch";
-import SuggestedOption from "./SuggestedOption";
 
-function Seeker({getId, getButton}){
-   const {getLocations} = useFetch()
-   const [text, setText] = useState("")
-   const [options, setOptions] = useState([])
-   const locations = getLocations("https://rickandmortyapi.com/api/location")
+function Seeker({getId, getButton, locations}){
+   const [text, setText] = useState("") // Para obtener el contenido del imput
+   const [options, setOptions] = useState([]) // Areglo de botones para la paginacion
 
-   function optionClick(event){
+   function optionClick(event){ // Cuando se hace click en una opcion del buscador
       const form = document.querySelector(".seeker")
       getId(event.target.dataset.id)
       getButton(undefined)
@@ -16,7 +13,7 @@ function Seeker({getId, getButton}){
       form.classList.remove("seeker-active")
    }
 
-   function inputChange(event){
+   function inputChange(event){ // Para actualizar los datos cuando se modifica el valor del input
       const form = document.querySelector(".seeker"), valLowercase = event.target.value.toLowerCase()
       setText(event.target.value)
       if(event.target.value.trim()){
@@ -36,13 +33,13 @@ function Seeker({getId, getButton}){
          <input onChange={inputChange} autoComplete="off" type="text" list="locations" id="location" placeholder="Location" value={text} />
          <div className="separator"></div>
          <ul className="autocomp-box">
-            {/* {options.map(option=> <SuggestedOption key={`${option.id}${option.span}`} option={option} optionClick={optionClick} />)} */}
             {options.map(option=> (
-            <li key={option.id} onClick={optionClick} className="autocomp_option" data-id={option.id}>
-               {option.start}
-               <span>{option.span}</span>
-               {option.end}
-            </li>))}
+               <li key={option.id} onClick={optionClick} className="autocomp_option" data-id={option.id}>
+                  {option.start}
+                  <span>{option.span}</span>
+                  {option.end}
+               </li>)
+            )}
          </ul>
       </form>
    )

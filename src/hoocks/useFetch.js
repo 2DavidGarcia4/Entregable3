@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function useFetch(){
-   function getLocations(url){
+   function getLocations(url){ // Obtener todas los localizaciones con una funcion recursiva
       const [locations, getData] = useState([])
       let array = []
       function recursive(url1){
@@ -17,10 +17,9 @@ function useFetch(){
       return locations
    }
 
-   function getDimension(id=false, setNumbersCards){
+   function getDimension(id=false){
       const [data, getData] = useState(null)
       useEffect(()=>{
-         setNumbersCards({start: 0, limit: 20})
          const randomNum = Math.floor(Math.random()*125)+1
          fetch(`https://rickandmortyapi.com/api/location/${id || randomNum}`).then(prom=> prom.json()).then(res=> getData(res)).catch(error=> console.error(error))
       }, [id])
