@@ -36,7 +36,13 @@ function Seeker({getId, getButton}){
          <input onChange={inputChange} autoComplete="off" type="text" list="locations" id="location" placeholder="Location" value={text} />
          <div className="separator"></div>
          <ul className="autocomp-box">
-            {options.map(option=> <SuggestedOption key={`${option.id}${option.span}`} option={option} optionClick={optionClick} />)}
+            {/* {options.map(option=> <SuggestedOption key={`${option.id}${option.span}`} option={option} optionClick={optionClick} />)} */}
+            {options.map(option=> (
+            <li key={option.id} onClick={optionClick} className="autocomp_option" data-id={option.id}>
+               {option.start}
+               <span>{option.span}</span>
+               {option.end}
+            </li>))}
          </ul>
       </form>
    )
