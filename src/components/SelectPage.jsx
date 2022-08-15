@@ -4,6 +4,16 @@ function SelectPage({residents, setNumbersCards, button}){
    const [numbers, setNumbersPage] = useState({start: 0, limit: 8})
    const [actualButton, getActualButton] = button
    const buttons = []
+   console.log("Select page")
+   if(buttons && !actualButton){
+      document.querySelectorAll(".select_page-btn").forEach(el=>{
+         if(el.dataset.id == 1){
+            el.classList.add("page-btn-active")
+         }else{
+            el.classList.remove("page-btn-active")
+         }
+      })
+   }
    function btnPage(event){
       if(!actualButton || event!=actualButton){
          document.querySelectorAll(".select_page-btn").forEach(el=>{
