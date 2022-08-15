@@ -51,7 +51,7 @@
   z-index: 10;
   column-gap: 20px;
   width: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 17px;
   padding: 20px 0;
 }
 
@@ -78,13 +78,17 @@
   background-color: var(--Dark-blue);
 }
 
-.seeker-active .separator{
+.separator{
+  background-color: transparent;
   position: relative;
-  background-color: #03373f;
   width: 96%;
   height: 3px;
   border-radius: 2px;
   z-index: 4;
+}
+
+.seeker-active .separator{
+  background-color: #03373f;
 }
 
 .autocomp-box{
